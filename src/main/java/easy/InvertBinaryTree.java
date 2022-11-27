@@ -23,15 +23,10 @@ public class InvertBinaryTree {
         return root;
       }
       TreeNode l = root.left;
-      TreeNode r = root.right;
-      if (l != null) {
-        if (root.val > l.val) {
-          root.right = l;
-          root.left = r;
-        }
-        invertTree(l);
-        invertTree(r);
-      }
+      root.left = root.right;
+      root.right = l;
+        invertTree(root.left);
+        invertTree(root.right);
       return root;
     }
     
